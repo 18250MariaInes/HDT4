@@ -34,10 +34,13 @@ public DoublyLinkedNode(E v)
 
 public void setNext(DoublyLinkedNode o){
     this.nextElement = o;
-    o.previous(this);
+    o.previous();
 }
-public void previous (DoublyLinkedNode o){
-    o.previousElement=this;
-    this.setNext(o);
+public DoublyLinkedNode previous (){
+    return previousElement;
+}
+
+public E value(){
+    return data;
 }
 }
