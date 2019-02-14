@@ -8,7 +8,7 @@
  *
  * @author maria
  */
-public class Calculadora {
+public class Calculadora implements Calculator{
     //Atributo que permite Singleton
     private static Calculadora miCalcu;
     
