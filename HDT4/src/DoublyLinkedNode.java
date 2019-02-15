@@ -7,13 +7,32 @@
 /**
  *
  * @author maria
+ * @param <E>
  */
 public class DoublyLinkedNode<E> {
-    protected E data;
-protected DoublyLinkedNode<E> nextElement;
-protected DoublyLinkedNode<E> previousElement;
 
-public DoublyLinkedNode(E v,
+    /**
+     *
+     */
+    protected E data;
+
+    /**
+     *
+     */
+    protected DoublyLinkedNode<E> nextElement;
+
+    /**
+     *
+     */
+    protected DoublyLinkedNode<E> previousElement;
+
+    /**
+     *
+     * @param v
+     * @param next
+     * @param previous
+     */
+    public DoublyLinkedNode(E v,
                         DoublyLinkedNode<E> next,
                         DoublyLinkedNode<E> previous)
 {
@@ -26,21 +45,38 @@ public DoublyLinkedNode(E v,
         previousElement.nextElement = this;
 }
 
-public DoublyLinkedNode(E v)
+    /**
+     *
+     * @param v
+     */
+    public DoublyLinkedNode(E v)
 // post: constructs a single element
 {
     this(v,null,null);
 }
 
-public void setNext(DoublyLinkedNode o){
+    /**
+     *
+     * @param o
+     */
+    public void setNext(DoublyLinkedNode o){
     this.nextElement = o;
     o.previous();
 }
-public DoublyLinkedNode previous (){
+
+    /**
+     *
+     * @return
+     */
+    public DoublyLinkedNode previous (){
     return previousElement;
 }
 
-public E value(){
+    /**
+     *
+     * @return
+     */
+    public E value(){
     return data;
 }
 }

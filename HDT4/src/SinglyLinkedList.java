@@ -89,67 +89,84 @@ public class SinglyLinkedList<E> extends abstractList<E> {
 
     @Override
     public void clear() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public E getLast() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        E value = null;
+        return value;
     }
 
     @Override
     public E removeLast() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        E value = null;
+        return value;
     }
 
     @Override
     public E remove(E value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        value = null;
+        return value;
     }
 
     @Override
     public void add(E value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
     }
 
     @Override
     public E remove() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        E value = null;
+        return value;
     }
 
     @Override
     public E get() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        E value = null;
+        return value;
     }
 
     @Override
     public int indexOf(E value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 0;
     }
 
     @Override
     public int lastIndexOf(E value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 0;
     }
 
     @Override
     public E get(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        E value = null;
+        return value;
     }
 
     @Override
     public E set(int i, E o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        E value = null;
+        return value;
     }
 
     @Override
     public void add(int i, E o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public E remove(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        E value = null;
+        return value;
+    }
+    
+    public E pop(){
+        E value=removeLast();
+        return value;
+    }
+    
+    public void push(E item){
+        addLast(item);
     }
     
 }
