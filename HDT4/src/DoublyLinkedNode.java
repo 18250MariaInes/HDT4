@@ -1,12 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Maria Ines Vasquez Figueroa 18250    Paula Camila Gonzalez Ortega 18398
+ * 15 de Febrero de 2019  -  Algoritmos y Estructuras UVG
+ * Esta clase permite crear un Nodo que sera utilizado en la clase DoublyLinkedNode
  */
 
 /**
  *
- * @author maria
+ * @author maria y camila
  * @param <E>
  */
 public class DoublyLinkedNode<E> {
@@ -17,12 +17,12 @@ public class DoublyLinkedNode<E> {
     protected E data;
 
     /**
-     *
+     * Objeto que apunta al siguiente
      */
     protected DoublyLinkedNode<E> nextElement;
 
     /**
-     *
+     * Objeto que apunta al anterior
      */
     protected DoublyLinkedNode<E> previousElement;
 
@@ -56,16 +56,15 @@ public class DoublyLinkedNode<E> {
 }
 
     /**
-     *
+     * Se establece en nuevo siguiente elemento
      * @param o
      */
     public void setNext(DoublyLinkedNode o){
     this.nextElement = o;
-    o.previous();
 }
 
     /**
-     *
+     * Se establece en nuevo anterior elemento
      * @return
      */
     public DoublyLinkedNode previous (){
@@ -73,7 +72,7 @@ public class DoublyLinkedNode<E> {
 }
 
     /**
-     *
+     * 
      * @return
      */
     public E value(){

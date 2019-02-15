@@ -1,23 +1,28 @@
-
-
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Maria Ines Vasquez Figueroa 18250    Paula Camila Gonzalez Ortega 18398
+ * 15 de Febrero de 2019  -  Algoritmos y Estructuras UVG
+ * Esta clase permite crear una pila de tipo lista generica que extiende de la clase AbstractaStack
+ * y cuenta con una lista como unico atributo
  */
 
 /**
  *
- * @author maria
+ * @author maria y camila
+ * @param <E>
  */
+
 public class StackLista<E> extends AbstractStack<E>{
     private list list;
     
-    
+    /**
+     *
+     * @param n
+     */
     public StackLista (int n){
         FactoryList f = new FactoryList();
         list=f.creadorList(n);
     }
+    @Override
     public void push(E item){
         this.list.add(item);
    }

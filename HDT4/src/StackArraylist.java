@@ -1,20 +1,33 @@
-
-import java.util.ArrayList;
-
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Maria Ines Vasquez Figueroa 18250    Paula Camila Gonzalez Ortega 18398
+ * 15 de Febrero de 2019  -  Algoritmos y Estructuras UVG
+ * Esta clase permite crear una ArrayList que extiende de la clase Abstracta Stack
+ * y cuenta con un ArrayList generico como parametro
  */
 
 /**
  *
- * @author maria
+ * @author maria y camila
+ * @param <E>
+ */
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author Camila
+ * @param <E>
  */
 public class StackArraylist<E> extends  AbstractStack<E> {
-     protected ArrayList<E> data;
 
-   
+    /**
+     * Atributo que contiene todos los datos almacenados
+     */
+    protected ArrayList<E> data;
+
+    /**
+     * Constructor
+     */
     public StackArraylist()
 	// post: constructs a new, empty stack
 	{

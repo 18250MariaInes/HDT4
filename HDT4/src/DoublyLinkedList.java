@@ -1,19 +1,36 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Maria Ines Vasquez Figueroa 18250    Paula Camila Gonzalez Ortega 18398
+ * 15 de Febrero de 2019  -  Algoritmos y Estructuras UVG
+ * Esta clase extiende la clase abstracta de list generica, utiliza dos Nodos generico
+ * y un contador para poder crear un objeto tipo Lista doblemente encadenada
  */
 
 /**
  *
- * @author maria
+ * @author maria y camila
+ * @param <E>
  */
 public class DoublyLinkedList<E> extends abstractList<E> {
-    protected int count;
-protected DoublyLinkedNode<E> head;
-protected DoublyLinkedNode<E> tail;
 
-public DoublyLinkedList()
+    /**
+     * Contador de elementos 
+     */
+    protected int count;
+
+    /**
+     * Nodo que funciona como cabeza
+     */
+    protected DoublyLinkedNode<E> head;
+
+    /**
+     * Nodo que funciona como cola
+     */
+    protected DoublyLinkedNode<E> tail;
+
+    /**
+     *
+     */
+    public DoublyLinkedList()
 // post: constructs an empty list
 {
    head = null;
@@ -21,8 +38,11 @@ public DoublyLinkedList()
    count = 0;
 }
 
-
-public void addFirst(E value)
+    /**
+     * Se agrega un elemento al inicio de la lista
+     * @param value
+     */
+    public void addFirst(E value)
 // pre: value is not null
 // post: adds element to head of list
 {
@@ -33,8 +53,11 @@ public void addFirst(E value)
    count++;
 }
 
-
-public void addLast(E value)
+    /**
+     * Se agrega un elemento al final de la lista
+     * @param value
+     */
+    public void addLast(E value)
 // pre: value is not null
 // post: adds new value to tail of list
 {
@@ -45,8 +68,11 @@ public void addLast(E value)
    count++;
 }
 
-
-public E removeLast()
+    /**
+     * Se elimina el elemento al final de la lista
+     * @return
+     */
+    public E removeLast()
 // pre: list is not empty
 // post: removes value from tail of list
 {
@@ -61,95 +87,170 @@ public E removeLast()
    return temp.value();
 }
 
+    /**
+     * 
+     * @return
+     */
     @Override
     public int size() {
         return 0;
     }
 
+    /**
+     *
+     */
     @Override
     public void clear() {
         
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public E getFirst() {
         E value = null;
         return value;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public E getLast() {
         E value = null;
         return value;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public E removeFirst() {
         E value = null;
         return value;
     }
 
+    /**
+     *
+     * @param value
+     * @return
+     */
     @Override
     public E remove(E value) {
         value = null;
         return value;
     }
 
+    /**
+     *
+     * @param value
+     */
     @Override
     public void add(E value) {
         
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public E remove() {
         E value = null;
         return value;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public E get() {
         E value = null;
         return value;
     }
 
+    /**
+     *
+     * @param value
+     * @return
+     */
     @Override
     public int indexOf(E value) {
         return 0;
     }
 
+    /**
+     *
+     * @param value
+     * @return
+     */
     @Override
     public int lastIndexOf(E value) {
         return 0;
     }
 
+    /**
+     *
+     * @param i
+     * @return
+     */
     @Override
     public E get(int i) {
         E value = null;
         return value;
     }
 
+    /**
+     *
+     * @param i
+     * @param o
+     * @return
+     */
     @Override
     public E set(int i, E o) {
         E value = null;
         return value;
     }
 
+    /**
+     *
+     * @param i
+     * @param o
+     */
     @Override
     public void add(int i, E o) {
         
     }
 
+    /**
+     *
+     * @param i
+     * @return
+     */
     @Override
     public E remove(int i) {
         E value = null;
         return value;
     }
     
+    /**
+     *
+     * @return
+     */
     public E pop(){
         E value=removeLast();
         return value;
     }
     
+    /**
+     *
+     * @param item
+     */
     public void push(E item){
         addLast(item);
     }

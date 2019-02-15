@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
@@ -19,21 +20,29 @@ import static jdk.nashorn.tools.ShellFunctions.input;
 
 /**
  *
- * @author maria
+ * @author maria y camila
  */
 public class MainClass {
+
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         
         //Se instancia el arreglo en el cual se guardaran los datos del txt
         ArrayList<String> lect = new ArrayList<String>();
         //Se instancia un objeto de clase pila y otro de tipo calculadora
         Stack<Integer> pila;
+        list<Integer> lista;
         Calculadora calculadora = new Calculadora();
         //Variables necesarias para recibir eleccion de usuario
         Scanner scan = new Scanner(System.in);
         int eleccion;
+        
         //Se instancia un objeto tipo FactoryStack para crear la opcion elegida por el usuario
         FactoryStack myfactory=new FactoryStack();
+        FactoryList factory = new FactoryList();
         
         System.out.println("Introduzca con que opcion desea calcular la expresión postfix");
         System.out.println("1. Lista simplemente encadenada");
@@ -41,7 +50,12 @@ public class MainClass {
         System.out.println("3. Lista Circular");
         System.out.println("4. Stack de Arraylist");
         System.out.println("5. Stack de vector");
-        eleccion=scan.nextInt();
+        try{
+             eleccion=scan.nextInt();
+        } catch(InputMismatchException e){
+            System.out.println("No haz ingresado un numero. El programa se ejecutara con una Lista Simple Encadenada\n");
+            eleccion = 1;
+        }
         
         //Se lee el documento txt
         try{
@@ -58,7 +72,7 @@ public class MainClass {
         switch(eleccion){
             case 1:
                 //Si elige una lista simple encadenada
-                pila = myfactory.creadorStack(eleccion);
+               lista = factory.creadorList(eleccion);
                 for (int i=0; i<=(lect.size()-1); i++){
                     //Se obtiene el string del txt y se transforma a un array
                     String s = lect.get(i);
@@ -75,28 +89,28 @@ public class MainClass {
                         int a;
                         try {
                             a=Integer.parseInt(item); //el item se intenta transformar en int
-                            pila.push(a);  //Se agrega a la pila
+                            lista.addFirst(a);  //Se agrega a la pila
 
                         }
                            catch (NumberFormatException e){
                                //Si el item es de tipo String se sacan dos elementos de la pila
-                               int dato1 = pila.pop();
-                               int dato2 = pila.pop();
+                               int dato1 = lista.removeFirst();
+                               int dato2 = lista.removeFirst();
 
                                //Se operan los elementos con el signos usando la calculadora
                                int nuevo = calculadora.calculate(dato1, dato2, item);
                                //Se agrega el resultado a la pila
-                               pila.push(nuevo);
+                               lista.addFirst(nuevo);
                         }
                     }
                     //Se imprime el resultado finalCalcu
-                    System.out.println("Esta es el resultado de nuestra clase pila: "+ pila.peek());
+                    System.out.println("Esta es el resultado de nuestra clase Lista Simple Encadenada: "+ lista.getFirst());
                     }     
                 break;
             case 2:
                 //Si elige la lista doblemente encadenada
-                pila= myfactory.creadorStack(eleccion);
-                                for (int i=0; i<=(lect.size()-1); i++){
+                lista = factory.creadorList(eleccion);
+                for (int i=0; i<=(lect.size()-1); i++){
                     //Se obtiene el string del txt y se transforma a un array
                     String s = lect.get(i);
                     String[] arr = s.split(" ");
@@ -112,28 +126,28 @@ public class MainClass {
                         int a;
                         try {
                             a=Integer.parseInt(item); //el item se intenta transformar en int
-                            pila.push(a);  //Se agrega a la pila
+                            lista.addLast(a);  //Se agrega a la pila
 
                         }
                            catch (NumberFormatException e){
                                //Si el item es de tipo String se sacan dos elementos de la pila
-                               int dato1 = pila.pop();
-                               int dato2 = pila.pop();
+                               int dato1 = lista.removeLast();
+                               int dato2 = lista.removeLast();
 
                                //Se operan los elementos con el signos usando la calculadora
                                int nuevo = calculadora.calculate(dato1, dato2, item);
                                //Se agrega el resultado a la pila
-                               pila.push(nuevo);
+                               lista.addLast(nuevo);
                         }
                     }
                     //Se imprime el resultado finalCalcu
-                    System.out.println("Esta es el resultado de nuestra clase pila: "+ pila.peek());
-                    }   
+                    System.out.println("Esta es el resultado de nuestra Lista Doblemente Encadenada: "+ lista.getFirst());
+                    }     
                 break;
             case 3:
                 //Si elige lista circular
-                                pila= myfactory.creadorStack(eleccion);
-                                for (int i=0; i<=(lect.size()-1); i++){
+                lista = factory.creadorList(eleccion);
+                for (int i=0; i<=(lect.size()-1); i++){
                     //Se obtiene el string del txt y se transforma a un array
                     String s = lect.get(i);
                     String[] arr = s.split(" ");
@@ -149,23 +163,23 @@ public class MainClass {
                         int a;
                         try {
                             a=Integer.parseInt(item); //el item se intenta transformar en int
-                            pila.push(a);  //Se agrega a la pila
+                            lista.addLast(a);  //Se agrega a la pila
 
                         }
                            catch (NumberFormatException e){
                                //Si el item es de tipo String se sacan dos elementos de la pila
-                               int dato1 = pila.pop();
-                               int dato2 = pila.pop();
+                               int dato1 = lista.removeLast();
+                               int dato2 = lista.removeLast();
 
                                //Se operan los elementos con el signos usando la calculadora
                                int nuevo = calculadora.calculate(dato1, dato2, item);
                                //Se agrega el resultado a la pila
-                               pila.push(nuevo);
+                               lista.addLast(nuevo);
                         }
                     }
                     //Se imprime el resultado finalCalcu
-                    System.out.println("Esta es el resultado de nuestra clase pila: "+ pila.peek());
-                    }   
+                    System.out.println("Esta es el resultado de nuestra clase Lista Circular: "+ lista.getFirst());
+                    }     
                 break;
             case 4:
                 //si elige Stack de ArrayList
@@ -201,7 +215,7 @@ public class MainClass {
                         }
                     }
                     //Se imprime el resultado finalCalcu
-                    System.out.println("Esta es el resultado de nuestra clase pila: "+ pila.peek());
+                    System.out.println("Esta es el resultado de nuestra clase ArrayList: "+ pila.peek());
                     }   
                 break;
             case 5:
@@ -238,7 +252,7 @@ public class MainClass {
                         }
                     }
                     //Se imprime el resultado finalCalcu
-                    System.out.println("Esta es el resultado de nuestra clase pila: "+ pila.peek());
+                    System.out.println("Esta es el resultado de nuestra clase Vector: "+ pila.peek());
                     }   
                 break;
             default:

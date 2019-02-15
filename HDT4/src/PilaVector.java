@@ -1,16 +1,18 @@
-
-import java.util.Vector;
-
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Maria Ines Vasquez Figueroa 18250    Paula Camila Gonzalez Ortega 18398
+ * 15 de Febrero de 2019  -  Algoritmos y Estructuras UVG
+ * Esta clase permite crear una Pila que extiende de la clase AbstractaStack
+ * y cuenta con un Vector como atributo 
  */
 
 /**
  *
- * @author maria
+ * @author maria y camila
+ * @param <E>
  */
+
+import java.util.Vector;
+
 public class PilaVector<E> extends AbstractStack<E> {
     Vector<E> v = new Vector();
     
