@@ -108,8 +108,7 @@ public class DoublyLinkedList<E> extends abstractList<E> {
      *
      * @return
      */
-    @Override
-    public E getFirst() {
+    public E addFirst() {
         E value = null;
         return value;
     }
@@ -151,6 +150,7 @@ public class DoublyLinkedList<E> extends abstractList<E> {
      */
     @Override
     public void add(E value) {
+        
         
     }
 
@@ -253,6 +253,11 @@ public class DoublyLinkedList<E> extends abstractList<E> {
      */
     public void push(E item){
         addLast(item);
+    }
+
+    @Override
+    public E getFirst() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

@@ -24,7 +24,7 @@ public class StackLista<E> extends AbstractStack<E>{
     }
     @Override
     public void push(E item){
-        this.list.add(item);
+        this.list.addLast(item);
    }
 
     /**
@@ -35,11 +35,8 @@ public class StackLista<E> extends AbstractStack<E>{
    public E pop(){
        // pre: stack is not empty
         // post: most recently pushed item is removed and returned
-       int size=list.size();
-       int ultimo=size-1;
-       E element=(E) list.get(ultimo);
-       list.remove(ultimo);
-       return element;
+       E borrado = (E)list.removeLast();
+       return borrado;
    }
    
     /**
@@ -50,7 +47,7 @@ public class StackLista<E> extends AbstractStack<E>{
    public E peek(){
        int size=list.size();
        int ultimo=size-1;
-       E element = (E) list.getLast();
+       E element = (E) list.removeLast();
        return element;
    }
    // pre: stack is not empty

@@ -34,7 +34,6 @@ public class MainClass {
         ArrayList<String> lect = new ArrayList<String>();
         //Se instancia un objeto de clase pila y otro de tipo calculadora
         Stack<Integer> pila;
-        list<Integer> lista;
         Calculadora calculadora = new Calculadora();
         //Variables necesarias para recibir eleccion de usuario
         Scanner scan = new Scanner(System.in);
@@ -69,121 +68,10 @@ public class MainClass {
         }
         
         //switch para leer el el .txt, guardarlo y operarlo segun la opcion seleccionada
-        switch(eleccion){
-            case 1:
-                //Si elige una lista simple encadenada
-               lista = factory.creadorList(eleccion);
-                for (int i=0; i<=(lect.size()-1); i++){
-                    //Se obtiene el string del txt y se transforma a un array
-                    String s = lect.get(i);
-                    String[] arr = s.split(" ");
-                    //Se crea una lista
-                    List<String> one = Arrays.asList(s.split(" "));
-                    //Se transforma en un arraylist y se guarda
-                    List<String> two = new ArrayList<>(Arrays.asList(s.split(" ")));
-
-                    //Se evalua cada objeto de array y si es int se agrega a la pila
-                    for (int m = 0; m <=((two.size())-1); m++){
-                        //System.out.println("estoy en el for");
-                        String item = two.get(m);
-                        int a;
-                        try {
-                            a=Integer.parseInt(item); //el item se intenta transformar en int
-                            lista.addFirst(a);  //Se agrega a la pila
-
-                        }
-                           catch (NumberFormatException e){
-                               //Si el item es de tipo String se sacan dos elementos de la pila
-                               int dato1 = lista.removeFirst();
-                               int dato2 = lista.removeFirst();
-
-                               //Se operan los elementos con el signos usando la calculadora
-                               int nuevo = calculadora.calculate(dato1, dato2, item);
-                               //Se agrega el resultado a la pila
-                               lista.addFirst(nuevo);
-                        }
-                    }
-                    //Se imprime el resultado finalCalcu
-                    System.out.println("Esta es el resultado de nuestra clase Lista Simple Encadenada: "+ lista.getFirst());
-                    }     
-                break;
-            case 2:
-                //Si elige la lista doblemente encadenada
-                lista = factory.creadorList(eleccion);
-                for (int i=0; i<=(lect.size()-1); i++){
-                    //Se obtiene el string del txt y se transforma a un array
-                    String s = lect.get(i);
-                    String[] arr = s.split(" ");
-                    //Se crea una lista
-                    List<String> one = Arrays.asList(s.split(" "));
-                    //Se transforma en un arraylist y se guarda
-                    List<String> two = new ArrayList<>(Arrays.asList(s.split(" ")));
-
-                    //Se evalua cada objeto de array y si es int se agrega a la pila
-                    for (int m = 0; m <=((two.size())-1); m++){
-                        //System.out.println("estoy en el for");
-                        String item = two.get(m);
-                        int a;
-                        try {
-                            a=Integer.parseInt(item); //el item se intenta transformar en int
-                            lista.addLast(a);  //Se agrega a la pila
-
-                        }
-                           catch (NumberFormatException e){
-                               //Si el item es de tipo String se sacan dos elementos de la pila
-                               int dato1 = lista.removeLast();
-                               int dato2 = lista.removeLast();
-
-                               //Se operan los elementos con el signos usando la calculadora
-                               int nuevo = calculadora.calculate(dato1, dato2, item);
-                               //Se agrega el resultado a la pila
-                               lista.addLast(nuevo);
-                        }
-                    }
-                    //Se imprime el resultado finalCalcu
-                    System.out.println("Esta es el resultado de nuestra Lista Doblemente Encadenada: "+ lista.getFirst());
-                    }     
-                break;
-            case 3:
-                //Si elige lista circular
-                lista = factory.creadorList(eleccion);
-                for (int i=0; i<=(lect.size()-1); i++){
-                    //Se obtiene el string del txt y se transforma a un array
-                    String s = lect.get(i);
-                    String[] arr = s.split(" ");
-                    //Se crea una lista
-                    List<String> one = Arrays.asList(s.split(" "));
-                    //Se transforma en un arraylist y se guarda
-                    List<String> two = new ArrayList<>(Arrays.asList(s.split(" ")));
-
-                    //Se evalua cada objeto de array y si es int se agrega a la pila
-                    for (int m = 0; m <=((two.size())-1); m++){
-                        //System.out.println("estoy en el for");
-                        String item = two.get(m);
-                        int a;
-                        try {
-                            a=Integer.parseInt(item); //el item se intenta transformar en int
-                            lista.addLast(a);  //Se agrega a la pila
-
-                        }
-                           catch (NumberFormatException e){
-                               //Si el item es de tipo String se sacan dos elementos de la pila
-                               int dato1 = lista.removeLast();
-                               int dato2 = lista.removeLast();
-
-                               //Se operan los elementos con el signos usando la calculadora
-                               int nuevo = calculadora.calculate(dato1, dato2, item);
-                               //Se agrega el resultado a la pila
-                               lista.addLast(nuevo);
-                        }
-                    }
-                    //Se imprime el resultado finalCalcu
-                    System.out.println("Esta es el resultado de nuestra clase Lista Circular: "+ lista.getFirst());
-                    }     
-                break;
-            case 4:
+        
                 //si elige Stack de ArrayList
                                 pila= myfactory.creadorStack(eleccion);
+                             
                                 for (int i=0; i<=(lect.size()-1); i++){
                     //Se obtiene el string del txt y se transforma a un array
                     String s = lect.get(i);
@@ -201,63 +89,27 @@ public class MainClass {
                         try {
                             a=Integer.parseInt(item); //el item se intenta transformar en int
                             pila.push(a);  //Se agrega a la pila
+                             
+                             
 
                         }
                            catch (NumberFormatException e){
                                //Si el item es de tipo String se sacan dos elementos de la pila
+                               
                                int dato1 = pila.pop();
+                               //System.out.println("Este es el numero 1"+dato1);
                                int dato2 = pila.pop();
 
                                //Se operan los elementos con el signos usando la calculadora
                                int nuevo = calculadora.calculate(dato1, dato2, item);
                                //Se agrega el resultado a la pila
                                pila.push(nuevo);
+                               //System.out.println("Este es el numero pushed al final"+nuevo);
                         }
                     }
                     //Se imprime el resultado finalCalcu
-                    System.out.println("Esta es el resultado de nuestra clase ArrayList: "+ pila.peek());
-                    }   
-                break;
-            case 5:
-                //si elige Stack de vector
-                                pila= myfactory.creadorStack(eleccion);
-                                for (int i=0; i<=(lect.size()-1); i++){
-                    //Se obtiene el string del txt y se transforma a un array
-                    String s = lect.get(i);
-                    String[] arr = s.split(" ");
-                    //Se crea una lista
-                    List<String> one = Arrays.asList(s.split(" "));
-                    //Se transforma en un arraylist y se guarda
-                    List<String> two = new ArrayList<>(Arrays.asList(s.split(" ")));
-
-                    //Se evalua cada objeto de array y si es int se agrega a la pila
-                    for (int m = 0; m <=((two.size())-1); m++){
-                        //System.out.println("estoy en el for");
-                        String item = two.get(m);
-                        int a;
-                        try {
-                            a=Integer.parseInt(item); //el item se intenta transformar en int
-                            pila.push(a);  //Se agrega a la pila
-
-                        }
-                           catch (NumberFormatException e){
-                               //Si el item es de tipo String se sacan dos elementos de la pila
-                               int dato1 = pila.pop();
-                               int dato2 = pila.pop();
-
-                               //Se operan los elementos con el signos usando la calculadora
-                               int nuevo = calculadora.calculate(dato1, dato2, item);
-                               //Se agrega el resultado a la pila
-                               pila.push(nuevo);
-                        }
-                    }
-                    //Se imprime el resultado finalCalcu
-                    System.out.println("Esta es el resultado de nuestra clase Vector: "+ pila.peek());
-                    }   
-                break;
-            default:
-                System.out.println("Opcion invalida");
-                break;
-        } //Se termina el switch
+                    System.out.println("Esta es el resultado: "+ pila.peek());
+                                }
+    
     }
 }

@@ -149,8 +149,22 @@ public class SinglyLinkedList<E> extends abstractList<E> {
      */
     @Override
     public E removeLast() {
-        E value = null;
-        return value;
+        Nodo<E> finger = head;
+        Nodo <E> previous=null;
+        
+      while (finger.next()!=null){
+          previous=finger;
+          finger=finger.next();
+      }
+      if (previous == null){
+          head=null;
+      }else{
+          previous.setNext(null);
+       }
+      count--;
+      return finger.value();
+	  
+   
     }
 
     /**
@@ -170,7 +184,7 @@ public class SinglyLinkedList<E> extends abstractList<E> {
      */
     @Override
     public void add(E value) {
-       
+       addLast(value);
     }
 
     /**
@@ -189,7 +203,7 @@ public class SinglyLinkedList<E> extends abstractList<E> {
      */
     @Override
     public E get() {
-        E value = null;
+        E value=removeFirst();
         return value;
     }
 
@@ -220,7 +234,7 @@ public class SinglyLinkedList<E> extends abstractList<E> {
      */
     @Override
     public E get(int i) {
-        E value = null;
+        E value=removeFirst();
         return value;
     }
 
